@@ -62,7 +62,7 @@ contract PodAuctionHouse is
     }
 
     /**
-     * @notice Create a bid for a Noun, with a given amount.
+     * @notice Create a bid for a Pod Auction, with a given amount.
      * @dev This contract only accepts payment in ETH.
      */
     function createBid(uint256, address)
