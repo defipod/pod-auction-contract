@@ -224,7 +224,12 @@ contract PodAuctionHouse is
             _safeTransferETH(owner(), _auction.amount);
         }
 
-        emit AuctionSettled(_auction.tokenId, _auction.bidder, _auction.amount);
+        emit AuctionSettled(
+            _auction.tokenId,
+            _auction.contractAddress,
+            _auction.bidder,
+            _auction.amount
+        );
     }
 
     /**

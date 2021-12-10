@@ -33,7 +33,12 @@ interface IAuctionHouse {
 
     event AuctionExtended(uint256 indexed nftId, uint256 endTime);
 
-    event AuctionSettled(uint256 indexed nftId, address winner, uint256 amount);
+    event AuctionSettled(
+        uint256 indexed nftId,
+        address indexed contractAddress,
+        address winner,
+        uint256 amount
+    );
 
     event AuctionTimeBufferUpdated(uint256 timeBuffer);
 
