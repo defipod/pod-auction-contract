@@ -30,6 +30,8 @@ contract PodAuctionHouse is
     // The active auction
     IAuctionHouse.Auction public auction;
 
+    uint256 public minimumRaise;
+
     /**
      * @notice Initialize the auction house and base contracts,
      * populate configuration values, and pause the contract.
@@ -156,6 +158,18 @@ contract PodAuctionHouse is
         reservePrice = _reservePrice;
 
         emit AuctionReservePriceUpdated(_reservePrice);
+    }
+
+    function extendAuction(uint256 _extraTime) external onlyOwner {
+        IAuctionHouse.Auction memory _auction = auction;
+
+        _auction.endTime = _auction.endTime + _extraTime;
+        auction = _auction;
+        emit AuctionExtend(_extraTime);
+    }
+
+    function setMinimumRaise(uint256 _minimum) external onlyOwner {
+        minimumRaise = _minimum;
     }
 
     /**

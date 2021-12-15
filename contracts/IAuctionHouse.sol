@@ -50,6 +50,8 @@ interface IAuctionHouse {
         uint256 minBidIncrementPercentage
     );
 
+    event AuctionExtend(uint256 extraTime);
+
     function settleAuction() external;
 
     function createBid(uint256 tokenId, address contractAddress)

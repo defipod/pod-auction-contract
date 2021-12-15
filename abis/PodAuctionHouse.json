@@ -59,6 +59,19 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "extraTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "AuctionExtend",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": true,
         "internalType": "uint256",
         "name": "nftId",
@@ -298,6 +311,19 @@
     "inputs": [
       {
         "internalType": "uint256",
+        "name": "_extraTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "extendAuction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
         "name": "_timeBuffer",
         "type": "uint256"
       },
@@ -330,6 +356,19 @@
         "internalType": "uint8",
         "name": "",
         "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "minimumRaise",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -410,6 +449,19 @@
       }
     ],
     "name": "setMinBidIncrementPercentage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_minimum",
+        "type": "uint256"
+      }
+    ],
+    "name": "setMinimumRaise",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
