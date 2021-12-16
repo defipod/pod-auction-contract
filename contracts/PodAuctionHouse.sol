@@ -172,6 +172,23 @@ contract PodAuctionHouse is
         minimumRaise = _minimum;
     }
 
+    function cancelLastAuction() external onlyOwner {
+        IAuctionHouse.Auction memory _auction = auction;
+
+        IERC721(_auction.contractAddress).transferFrom(
+            address(this),
+            owner(),
+            _auction.tokenId
+        );
+
+        if (_auction.amount > 0) {
+            address payable lastBidder = _auction.bidder;
+            _safeTransferETH(lastBidder, _auction.amount);
+        }
+
+        auction.settled = true;
+    }
+
     /**
      * @notice Set the auction minimum bid increment percentage.
      * @dev Only callable by the owner.
@@ -193,17 +210,24 @@ contract PodAuctionHouse is
      * @dev Store the auction details in the `auction` state variable and emit an AuctionCreated event.
      * fow the first version, only Pod team can create an auction
      */
-    function createAuction(uint256 _tokenId, address _contractAddress)
-        external
-        onlyOwner
-    {
+    function createAuction(
+        uint256 _tokenId,
+        address _contractAddress,
+        uint256 startingPrice
+    ) external onlyOwner {
         uint256 startTime = block.timestamp;
         uint256 endTime = startTime + duration;
+
+        IERC721(_contractAddress).transferFrom(
+            msg.sender,
+            address(this),
+            _tokenId
+        );
 
         auction = Auction({
             tokenId: _tokenId,
             contractAddress: _contractAddress,
-            amount: 0,
+            amount: startingPrice,
             startTime: startTime,
             endTime: endTime,
             bidder: payable(msg.sender),
