@@ -83,6 +83,10 @@ contract PodAuctionHouse is
                     ((_auction.amount * minBidIncrementPercentage) / 100),
             "Must send more than last bid by minBidIncrementPercentage amount"
         );
+        require(
+            msg.value >= _auction.amount + minimumRaise,
+            "must send more than last bid by minimumRaise"
+        );
 
         address payable lastBidder = _auction.bidder;
 
