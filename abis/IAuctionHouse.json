@@ -25,6 +25,12 @@
         "internalType": "bool",
         "name": "extended",
         "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "earn",
+        "type": "uint256"
       }
     ],
     "name": "AuctionBid",

@@ -39,6 +39,11 @@
       "address": "0xc7d41396b44D7Eb650fb164DCf4bCd4d9Ef93990",
       "txHash": "0x7bfd877e375fdb915628475903b47c21cdb0f6c853e8b16bc4e8fb4e429a3f87",
       "kind": "transparent"
+    },
+    {
+      "address": "0x5a29d265E3707990c720F348403936c4A120af97",
+      "txHash": "0x688672e112139138fd30e6e94c39724e031439eb4d84c9659feab891bdf7bc41",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -1241,6 +1246,472 @@
               {
                 "label": "settled",
                 "type": "t_bool"
+              }
+            ]
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "2228eb8f5bff216c82d1b7e03d5cbe717156e7133f1705f6c7cafa16d863b6dd": {
+      "address": "0x195965afa396c06642d418f8062F30BB68a9Ebc9",
+      "txHash": "0x0a53d2f119f78c7a57102a1d1b2bfe7d120bb628c840baff0febfc67247fab14",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:37"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:42"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:97"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:68"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "timeBuffer",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:19"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "reservePrice",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:22"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "minBidIncrementPercentage",
+            "type": "t_uint8",
+            "src": "contracts/PodAuctionHouse.sol:25"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "duration",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:28"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "auction",
+            "type": "t_struct(Auction)609_storage",
+            "src": "contracts/PodAuctionHouse.sol:31"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "minimumRaise",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:33"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_struct(Auction)609_storage": {
+            "label": "struct IAuctionHouse.Auction",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "contractAddress",
+                "type": "t_address"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "endTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "bidder",
+                "type": "t_address_payable"
+              },
+              {
+                "label": "settled",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "f3be7e3376588bb9b34ac5658a9110d8e27c00699c84d120ef243eee12a3eb58": {
+      "address": "0x1ea54E9058512827Ae765ffCED718FA66A19a003",
+      "txHash": "0x7971054d62a4f7c1cc950ddce61e93c2c6770cd976bb4caa77e11df17e1f4092",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:37"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:42"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:97"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:68"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "timeBuffer",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:22"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "reservePrice",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:25"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "minBidIncrementPercentage",
+            "type": "t_uint8",
+            "src": "contracts/PodAuctionHouse.sol:28"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "duration",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:31"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "auction",
+            "type": "t_struct(Auction)921_storage",
+            "src": "contracts/PodAuctionHouse.sol:34"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "minimumRaise",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:36"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_struct(Auction)921_storage": {
+            "label": "struct IAuctionHouse.Auction",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "contractAddress",
+                "type": "t_address"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "endTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "bidder",
+                "type": "t_address_payable"
+              },
+              {
+                "label": "settled",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "08a45400c7512d078aa496a6e2bd777efc66056fed70f9a76713755963e91d3e": {
+      "address": "0x0c8A822E12cd8A575143FF7393B5444759B52Bb1",
+      "txHash": "0x205b6eb265aa4c6272b34a1052f352479732ec29876aac62c248e8c42b9b18dc",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:37"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:42"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:97"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:68"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "timeBuffer",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:22"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "reservePrice",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:25"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "minBidIncrementPercentage",
+            "type": "t_uint8",
+            "src": "contracts/PodAuctionHouse.sol:28"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "duration",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:31"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "auction",
+            "type": "t_struct(Auction)923_storage",
+            "src": "contracts/PodAuctionHouse.sol:34"
+          },
+          {
+            "contract": "PodAuctionHouse",
+            "label": "minimumRaise",
+            "type": "t_uint256",
+            "src": "contracts/PodAuctionHouse.sol:36"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_struct(Auction)923_storage": {
+            "label": "struct IAuctionHouse.Auction",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "contractAddress",
+                "type": "t_address"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "endTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "bidder",
+                "type": "t_address_payable"
+              },
+              {
+                "label": "settled",
+                "type": "t_bool"
+              },
+              {
+                "label": "earnAmount",
+                "type": "t_uint256"
               }
             ]
           },

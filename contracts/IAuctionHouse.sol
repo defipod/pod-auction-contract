@@ -16,6 +16,8 @@ interface IAuctionHouse {
         address payable bidder;
         // Whether or not the auction has been settled
         bool settled;
+        // amount of earn
+        uint256 earnAmount;
     }
 
     event AuctionCreated(
@@ -28,7 +30,8 @@ interface IAuctionHouse {
         uint256 indexed nftId,
         address sender,
         uint256 value,
-        bool extended
+        bool extended,
+        uint256 earn
     );
 
     event AuctionExtended(uint256 indexed nftId, uint256 endTime);

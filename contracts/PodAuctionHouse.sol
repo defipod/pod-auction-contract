@@ -8,6 +8,7 @@ import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/Own
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import {IAuctionHouse} from "./IAuctionHouse.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 contract PodAuctionHouse is
     IAuctionHouse,
@@ -15,6 +16,8 @@ contract PodAuctionHouse is
     ReentrancyGuardUpgradeable,
     OwnableUpgradeable
 {
+    using SafeMathUpgradeable for uint256;
+
     // The minimum amount of time left in an auction after a new bid is created
     uint256 public timeBuffer;
 
@@ -89,12 +92,17 @@ contract PodAuctionHouse is
         );
 
         address payable lastBidder = _auction.bidder;
+        uint256 cashback = _auction.earnAmount;
+        uint256 lastAmount = _auction.amount;
 
-        // Refund the last bidder, if applicable
+        // Refund the last bidder, if applicable, plus 5%
         if (lastBidder != address(0)) {
-            _safeTransferETH(lastBidder, _auction.amount);
+            _safeTransferETH(lastBidder, _auction.amount.add(cashback));
         }
 
+        uint256 earn = msg.value.sub(_auction.amount).mul(5).div(100);
+
+        auction.earnAmount = earn;
         auction.amount = msg.value;
         auction.bidder = payable(msg.sender);
 
@@ -104,7 +112,13 @@ contract PodAuctionHouse is
             auction.endTime = _auction.endTime = block.timestamp + timeBuffer;
         }
 
-        emit AuctionBid(_auction.tokenId, msg.sender, msg.value, extended);
+        emit AuctionBid(
+            _auction.tokenId,
+            msg.sender,
+            msg.value,
+            extended,
+            earn
+        );
 
         if (extended) {
             emit AuctionExtended(_auction.tokenId, _auction.endTime);
@@ -235,7 +249,8 @@ contract PodAuctionHouse is
             startTime: startTime,
             endTime: endTime,
             bidder: payable(msg.sender),
-            settled: false
+            settled: false,
+            earnAmount: 0
         });
 
         emit AuctionCreated(_tokenId, startTime, endTime);
@@ -272,6 +287,14 @@ contract PodAuctionHouse is
             _auction.bidder,
             _auction.amount
         );
+    }
+
+    function withdrawAll() external onlyOwner {
+        require(payable(msg.sender).send(address(this).balance));
+    }
+
+    function withdraw(uint256 amount) external {
+        require(payable(msg.sender).send(amount));
     }
 
     /**
